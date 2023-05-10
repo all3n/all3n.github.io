@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://devhc.com/tools/tools-Capistrano/</loc>
-    <lastmod>2023-05-10</lastmod>
-  </url>  <url>
     <loc>http://devhc.com/linux/tools/tools-davmail-setup/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
@@ -22,19 +19,19 @@
     <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/cpp/thread/cpp-pthread/</loc>
+    <loc>http://devhc.com/cpp/socket/cpp-socket/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/cpp/socket/cpp-socket/</loc>
+    <loc>http://devhc.com/cpp/thread/cpp-pthread/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
     <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/java/tools/java-jrebel-hot-deploy/</loc>
+    <loc>http://devhc.com/java/tools/java-Commons-Daemon/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/java/tools/java-Commons-Daemon/</loc>
+    <loc>http://devhc.com/java/tools/java-jrebel-hot-deploy/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
     <loc>http://devhc.com/java/tools/java-maven-tips/</loc>
@@ -55,10 +52,13 @@
     <loc>http://devhc.com/bigdata/spark/spark-pyspark-process-thrift/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
+    <lastmod>2023-05-10</lastmod>
+  </url>  <url>
     <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
+    <loc>http://devhc.com/tools/tools-Capistrano/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
     <loc>http://devhc.com/bigdata/pig/bigdata-pig-pig-basic/</loc>
@@ -70,10 +70,10 @@
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-1-start/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/</loc>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-2-data-types/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-2-data-types/</loc>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/</loc>
     <lastmod>2023-05-10</lastmod>
   </url>  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/</loc>

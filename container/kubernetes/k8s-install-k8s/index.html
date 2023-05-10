@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="all3n&#39;s blog">
 <meta property="og:description" content="install kubernets in china官方文档 1. 环境相关设置 关闭swap然后需要禁用swap文件，这是Kubernetes的强制步骤。实现它很简单，编辑/etc/fstab文件，注释掉引用swap的行 去掉开机挂载swap如果不重启 可以sudo swapoff -a 可以直接关掉对于禁用swap内存，主要是为了性能考虑，具体原因可以查看Github上的Issue：Kubel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2023-05-10T08:58:54.857Z">
+<meta property="og:updated_time" content="2023-05-10T09:08:21.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="install kubernetes in china">
 <meta name="twitter:description" content="install kubernets in china官方文档 1. 环境相关设置 关闭swap然后需要禁用swap文件，这是Kubernetes的强制步骤。实现它很简单，编辑/etc/fstab文件，注释掉引用swap的行 去掉开机挂载swap如果不重启 可以sudo swapoff -a 可以直接关掉对于禁用swap内存，主要是为了性能考虑，具体原因可以查看Github上的Issue：Kubel">
@@ -246,7 +246,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2023-05-10T08:58:54.857Z" itemprop="dateUpdated">2023-05-10 16:58:54</time>
+    最后更新时间：<time datetime="2023-05-10T09:08:21.123Z" itemprop="dateUpdated">2023-05-10 17:08:21</time>
 </span><br>
 
 
@@ -369,30 +369,6 @@
 
 
 
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = ''.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: '' == 'true',
-            verify: '' == 'true',
-            appId: "",
-            appKey: "",
-            avatar: "",
-            placeholder: "",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: ""
-        })
-    </script>
-    <!-- Valine Comments end -->
 
 
 

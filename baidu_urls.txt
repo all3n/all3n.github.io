@@ -14,8 +14,8 @@ http://devhc.com/bigdata/spark/spark-pyspark-process-thrift/
 http://devhc.com/cpp/lang/cpp-cpp-basic/
 http://devhc.com/bigdata/pig/bigdata-pig-pig-basic/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-1-start/
-http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-2-data-types/
+http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-5-abstact-container/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/
