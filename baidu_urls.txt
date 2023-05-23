@@ -1,3 +1,4 @@
+http://devhc.com/cpp/lang/cpp-stringview/
 http://devhc.com/mac/mac-mac-upgrade-a1398/
 http://devhc.com/linux/i3/tools-i3/
 http://devhc.com/cpp/libs/cpp-libs-jsoncpp/
@@ -20,12 +21,12 @@ http://devhc.com/cpp/lang/cpp-cpp-basic/
 http://devhc.com/bigdata/pig/bigdata-pig-pig-basic/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-1-start/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-2-data-types/
-http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/
-http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/
+http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-5-abstact-container/
-http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/
+http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/
+http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-9-template/
 http://devhc.com/matlab/matlab-matlab-octave/
 http://devhc.com/java/tools/java-Commons-Daemon/

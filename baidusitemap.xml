@@ -13,10 +13,10 @@
     <loc>http://devhc.com/bigdata/spark/spark-pyspark-process-thrift/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/spring/spring-jpa/</loc>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
+    <loc>http://devhc.com/spring/spring-jpa/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
@@ -31,10 +31,10 @@
     <loc>http://devhc.com/linux/tools/git/tools-git/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/linux/ssh/tools-ssh-proxy/</loc>
+    <loc>http://devhc.com/linux/tools/tools-mutt-sendmail/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/linux/tools/tools-mutt-sendmail/</loc>
+    <loc>http://devhc.com/linux/ssh/tools-ssh-proxy/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/linux/i3/tools-i3/</loc>
@@ -46,22 +46,22 @@
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-2-data-types/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/</loc>
-    <lastmod>2023-05-23</lastmod>
-  </url>  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-express/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/</loc>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-5-abstact-container/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/</loc>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/</loc>
+    <lastmod>2023-05-23</lastmod>
+  </url>  <url>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-9-template/</loc>
@@ -73,10 +73,13 @@
     <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
+    <loc>http://devhc.com/cpp/socket/cpp-socket/</loc>
+    <lastmod>2023-05-23</lastmod>
+  </url>  <url>
     <loc>http://devhc.com/cpp/thread/cpp-pthread/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
-    <loc>http://devhc.com/cpp/socket/cpp-socket/</loc>
+    <loc>http://devhc.com/cpp/lang/cpp-stringview/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>  <url>
     <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
