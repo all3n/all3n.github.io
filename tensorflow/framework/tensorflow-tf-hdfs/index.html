@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <meta name="baidu-site-verification" content="O0qt9Gkm8L" />
+    
+    
+    
+    <title>Tensorflow Hdfs 支持 | all3n&#39;s blog | coding like r&amp;b</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="tensorflow,hdfs">
+    <meta name="description" content="tensorflow 支持hdfs2.6 开始需要引入 tensorflow io  才能支持viewfs 从 2.6.0 版本开始，您需要将 tensorflow_io 与 tensorflow 一起导入： 12安装方式： pip install tensorflow-io  复制 12import tensorflow as tf import tensorflow_io as tfio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow Hdfs 支持">
+<meta property="og:url" content="http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/index.html">
+<meta property="og:site_name" content="all3n&#39;s blog">
+<meta property="og:description" content="tensorflow 支持hdfs2.6 开始需要引入 tensorflow io  才能支持viewfs 从 2.6.0 版本开始，您需要将 tensorflow_io 与 tensorflow 一起导入： 12安装方式： pip install tensorflow-io  复制 12import tensorflow as tf import tensorflow_io as tfio">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-07T10:19:10.000Z">
+<meta property="article:modified_time" content="2024-07-09T08:45:11.136Z">
+<meta property="article:author" content="all3n">
+<meta property="article:tag" content="tensorflow">
+<meta property="article:tag" content="hdfs">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="all3n&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">all3n</h5>
+          <a href="mailto:wanghch8398@163.com" title="wanghch8398@163.com" class="mail">wanghch8398@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resource"  >
+                <i class="icon icon-lg icon-book"></i>
+                Resource
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/all3n" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Tensorflow Hdfs 支持</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Tensorflow Hdfs 支持</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-07T10:19:10.000Z" itemprop="datePublished" class="page-time">
+  2019-03-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/framework/">framework</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tensorflow-%E6%94%AF%E6%8C%81hdfs"><span class="post-toc-number">1.</span> <span class="post-toc-text">tensorflow 支持hdfs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HDFS"><span class="post-toc-number">2.</span> <span class="post-toc-text">HDFS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#libhdfs-%E7%BC%96%E8%AF%91"><span class="post-toc-number">3.</span> <span class="post-toc-text">libhdfs 编译</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-tensorflow-tf-hdfs"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Tensorflow Hdfs 支持</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-07 18:19:10" datetime="2019-03-07T10:19:10.000Z"  itemprop="datePublished">2019-03-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/">tensorflow</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/tensorflow/framework/">framework</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="tensorflow-支持hdfs"><a href="#tensorflow-支持hdfs" class="headerlink" title="tensorflow 支持hdfs"></a>tensorflow 支持hdfs</h2><p>2.6 开始需要引入 tensorflow io</p>
+<p> 才能支持viewfs</p>
+<p>从 2.6.0 版本开始，您需要将 tensorflow_io 与 tensorflow 一起导入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装方式：</span><br><span class="line"> pip install tensorflow-io</span><br></pre></td></tr></table></figure>
+
+<p><strong>复制</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"> import tensorflow_io as tfio</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h2><p>环境变量支持</p>
+<p>LD_LIBRARY_PATH必须支持检索到libjvm.so,libhdfs.so</p>
+<p>CLASSPATH 必须是glob方式才可以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export CLASSPATH=$(hadoop classpath --glob)</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$JAVA_HOME/jre/lib/amd64/server/:$HADOOP_HOME/native</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="libhdfs-编译"><a href="#libhdfs-编译" class="headerlink" title="libhdfs 编译"></a>libhdfs 编译</h2><p>以hadoop-2.6.0-src 为例</p>
+<p>vim hadoop-common-project&#x2F;hadoop-annotations&#x2F;pom.xml</p>
+<p>修改 1.7 改成1.8</p>
+<p>mvn -Pdist,native clean package -DskipTests -Dmaven.javadoc.skip&#x3D;true </p>
+<p>hadoop-2.6.0-src&#x2F;hadoop-common-project&#x2F;hadoop-common&#x2F;pom.xml</p>
+<p>找到javahClassName 写入a.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.zlib.ZlibCompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.zlib.ZlibDecompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.bzip2.Bzip2Compressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.bzip2.Bzip2Decompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.security.JniBasedUnixGroupsMapping&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.nativeio.NativeIO&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.nativeio.SharedFileDescriptorFactory&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.security.JniBasedUnixGroupsNetgroupMapping&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.snappy.SnappyCompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.snappy.SnappyDecompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.lz4.Lz4Compressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.io.compress.lz4.Lz4Decompressor&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.crypto.OpensslCipher&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.crypto.random.OpensslSecureRandom&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.util.NativeCrc32&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.net.unix.DomainSocket&lt;/javahClassName&gt;</span><br><span class="line">&lt;javahClassName&gt;org.apache.hadoop.net.unix.DomainSocketWatcher&lt;/javahClassName&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cat a.txt|grep -E -o &quot;org.[^&lt;]+&quot; &gt; class.txt</span><br></pre></td></tr></table></figure>
+
+<p>class.txt 如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">org.apache.hadoop.io.compress.zlib.ZlibCompressor</span><br><span class="line">org.apache.hadoop.io.compress.zlib.ZlibDecompressor</span><br><span class="line">org.apache.hadoop.io.compress.bzip2.Bzip2Compressor</span><br><span class="line">org.apache.hadoop.io.compress.bzip2.Bzip2Decompressor</span><br><span class="line">org.apache.hadoop.security.JniBasedUnixGroupsMapping</span><br><span class="line">org.apache.hadoop.io.nativeio.NativeIO</span><br><span class="line">org.apache.hadoop.io.nativeio.SharedFileDescriptorFactory</span><br><span class="line">org.apache.hadoop.security.JniBasedUnixGroupsNetgroupMapping</span><br><span class="line">org.apache.hadoop.io.compress.snappy.SnappyCompressor</span><br><span class="line">org.apache.hadoop.io.compress.snappy.SnappyDecompressor</span><br><span class="line">org.apache.hadoop.io.compress.lz4.Lz4Compressor</span><br><span class="line">org.apache.hadoop.io.compress.lz4.Lz4Decompressor</span><br><span class="line">org.apache.hadoop.crypto.OpensslCipher</span><br><span class="line">org.apache.hadoop.crypto.random.OpensslSecureRandom</span><br><span class="line">org.apache.hadoop.util.NativeCrc32</span><br><span class="line">org.apache.hadoop.net.unix.DomainSocket</span><br><span class="line">org.apache.hadoop.net.unix.DomainSocketWatcher</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat class.txt |xargs javah -d javah -classpath $(hadoop classpath)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd hadoop-hdfs-project/hadoop-hdfs/src/</span><br><span class="line">mkdir build </span><br><span class="line">cd build</span><br><span class="line">cmake -DCMAKE_INSTALL_PREFIX=$HOME/hdfs-native -DGENERATED_JAVAH=../javah -DJVM_ARCH_DATA_MODEL=64 -DREQUIRE_LIBWEBHDFS=OFF -DREQUIRE_FUSE=OFF ..</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libhdfs.so</span><br><span class="line">target/usr/local/lib/libhdfs.so</span><br><span class="line">header:</span><br><span class="line">main/native/libhdfs/hdfs.h</span><br></pre></td></tr></table></figure>
+
+
+
+<p>libhdfs.so api说明：</p>
+<p><a href="https://archive.cloudera.com/cdh4/cdh/4/hadoop-2.0.0-cdh4.6.0/hadoop-project-dist/hadoop-hdfs/LibHdfs.html">https://archive.cloudera.com/cdh4/cdh/4/hadoop-2.0.0-cdh4.6.0/hadoop-project-dist/hadoop-hdfs/LibHdfs.html</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;hdfs.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span> </span>&#123;</span><br><span class="line">   hdfsFS fs = <span class="built_in">hdfsConnect</span>(<span class="string">&quot;default&quot;</span>, <span class="number">0</span>);</span><br><span class="line">   <span class="type">const</span> <span class="type">char</span>* writePath = <span class="string">&quot;/tmp/testfile.txt&quot;</span>;</span><br><span class="line">   hdfsFile writeFile = <span class="built_in">hdfsOpenFile</span>(fs, writePath, O_WRONLY|O_CREAT, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   <span class="keyword">if</span>(!writeFile) &#123;</span><br><span class="line">          <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;Failed to open %s for writing!\n&quot;</span>, writePath);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="type">char</span>* buffer = <span class="string">&quot;Hello, World!&quot;</span>;</span><br><span class="line">   tSize num_written_bytes = <span class="built_in">hdfsWrite</span>(fs, writeFile, (<span class="type">void</span>*)buffer, <span class="built_in">strlen</span>(buffer)+<span class="number">1</span>);</span><br><span class="line">   <span class="keyword">if</span> (<span class="built_in">hdfsFlush</span>(fs, writeFile)) &#123;</span><br><span class="line">          <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;Failed to &#x27;flush&#x27; %s\n&quot;</span>, writePath);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">hdfsCloseFile</span>(fs, writeFile);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o main -Wl,-rpath=&#x27;$ORIGIN/lib&#x27; -Iinclude -Llib main.c -lhdfs</span><br><span class="line">CLASSPATH=$(hadoop classpath --glob) ./main</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-07-09T08:45:11.136Z" itemprop="dateUpdated">2024-07-09 16:45:11</time>
+</span><br>
+
+
+        转载请注明：<a href="/tensorflow/framework/tensorflow-tf-hdfs/" target="_blank" rel="external">http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/</a>
+    </div>
+    
+    <footer>
+        <a href="http://devhc.com">
+            <img src="/img/avatar.jpg" alt="all3n">
+            all3n
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tensorflow/" rel="tag">tensorflow</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&title=《Tensorflow Hdfs 支持》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&title=《Tensorflow Hdfs 支持》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow Hdfs 支持》 — all3n's blog&url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/spring/spring-jpa/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">JPA JOIN</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/linux/ssh/tools-ssh-proxy/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ssh 跳板机,Socket 代理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="all3n/all3n.github.io"
+        data-repo-id="R_kgDOJhQzOA"
+        data-category="General"
+        data-category-id="DIC_kwDOJhQzOM4CWaqR"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>all3n &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&title=《Tensorflow Hdfs 支持》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&title=《Tensorflow Hdfs 支持》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Tensorflow Hdfs 支持》 — all3n's blog&url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3awXKDMAxF0fz/T9NtZzqB+yRIavl6xaQN+LBQJEuvF17Hr/X38/Nrcufzp9y2ZMiQsSzjOF3vHtD5JL0+35sMGTL2YZBQmLLf3Z/cme9NhgwZMvhWCOYiaOIUU4YMGTLS23WKzy8HXBkyZCzF4Kne+e1qZfBHa3EZMmQsyKiFxc9cP9LfkCFDxlKMI1z9viHZYrwrGTJkjGbwAMcPyHg52gm4MmTI2I1BNpSSyLAXHzUrJosyZMgYxzj/17uCIyelIVuGDBmzGaTsfGK0K20tXHxXhgwZQxn8cI08rDZGVksoZciQIYMfnKV/7QxkPJJ7ypAh498zagVqZ1SrD3i7QxkyZGzJ4CVusdFY+gFAnVgZMmQMZXQak2QIIw3Q8TGcDBkyhjJ4qK2VpveOZVx0NmTIkDGUwaeqeGDlaWItJUXPlSFDxiAGSfVIq5K3M/mLiIctZMiQMZRRG+RKy867ilj0WyFDhoyhjE6jkSeO6agZeR0yZMjYh1E77q8liOnwWWvYQoYMGeMYtTZk/1gtTQ2DIlaGDBlDGZ1H8pCaFrQoDZUhQ8ZQxhEuHlL56+BJJEoKZciQMY6RHvrXjtVq9+EDGTJkyNiBURuYIMkf33otVZUhQ8ZuDB74Opvu8C6+JUOGDBk4u6yVr3F45Z0EGTJkbMlID9eeazy0Aq4MGTIWZHSGulJ2Z8Ci2MiUIUPG4gz+NVKOpoE4zfFajUwZMmSsx/gBzWlLqao9VBQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath:  [ ["$", "$"] ], //行内公式选择$
+        displayMath: [ ["$$","$$"] ], //段内公式选择$$
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+        ignoreClass:"comment-content" //避开含该Class的标签
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

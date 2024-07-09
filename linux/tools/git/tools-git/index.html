@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <meta name="baidu-site-verification" content="O0qt9Gkm8L" />
+    
+    
+    
+    <title>Git | all3n&#39;s blog | coding like r&amp;b</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,tools,git">
+    <meta name="description" content="Git 技巧不同域名使用不同秘钥修改~&#x2F;.ssh&#x2F;config 12345Host example.com    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa_exampleHost github.com    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa_github  git 多commit 支持区分公司commit信息和个人commit信息单独每次用git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://devhc.com/linux/tools/git/tools-git/index.html">
+<meta property="og:site_name" content="all3n&#39;s blog">
+<meta property="og:description" content="Git 技巧不同域名使用不同秘钥修改~&#x2F;.ssh&#x2F;config 12345Host example.com    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa_exampleHost github.com    IdentityFile ~&#x2F;.ssh&#x2F;id_rsa_github  git 多commit 支持区分公司commit信息和个人commit信息单独每次用git">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-20T08:31:22.000Z">
+<meta property="article:modified_time" content="2024-06-24T03:58:21.691Z">
+<meta property="article:author" content="all3n">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="all3n&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">all3n</h5>
+          <a href="mailto:wanghch8398@163.com" title="wanghch8398@163.com" class="mail">wanghch8398@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resource"  >
+                <i class="icon icon-lg icon-book"></i>
+                Resource
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/all3n" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Git</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Git</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-20T08:31:22.000Z" itemprop="datePublished" class="page-time">
+  2019-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/tools/">tools</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/tools/git/">git</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Git-%E6%8A%80%E5%B7%A7"><span class="post-toc-number">1.</span> <span class="post-toc-text">Git 技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8D%E5%90%8C%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%A7%98%E9%92%A5"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">不同域名使用不同秘钥</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git-%E5%A4%9Acommit-%E6%94%AF%E6%8C%81"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">git 多commit 支持</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%99github%E5%8D%95%E7%8B%AC%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">给github单独设置代理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8Cgit%E7%A5%9E%E5%99%A8-lazygit"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">命令行git神器 lazygit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-stash"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">使用 stash</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-rebase"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">使用 rebase</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-amend"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">使用 amend</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-reflog"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">使用 reflog</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-tag"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">使用 tag</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-submodule"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">使用 submodule</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-bisect"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">使用 bisect</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-cherry-pick"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">使用 cherry-pick</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-gitignore"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">使用 gitignore</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#neovim-git-plugins"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">neovim git plugins</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-tools-git"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Git</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-20 16:31:22" datetime="2019-03-20T08:31:22.000Z"  itemprop="datePublished">2019-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/tools/">tools</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/tools/git/">git</a></li></ul></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Git-技巧"><a href="#Git-技巧" class="headerlink" title="Git 技巧"></a>Git 技巧</h1><h2 id="不同域名使用不同秘钥"><a href="#不同域名使用不同秘钥" class="headerlink" title="不同域名使用不同秘钥"></a>不同域名使用不同秘钥</h2><p>修改~&#x2F;.ssh&#x2F;config</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host example.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_example</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-多commit-支持"><a href="#git-多commit-支持" class="headerlink" title="git 多commit 支持"></a>git 多commit 支持</h2><p>区分公司commit信息和个人commit信息<br>单独每次用git config 改很麻烦<br>可以用git Include 条件引入小技巧达到<br>比如公司git有强制commit信息要求</p>
+<p>修改<br>~&#x2F;.gitconfig</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[include]</span><br><span class="line">        path = /home/your_name/.gitconfig-default</span><br><span class="line"></span><br><span class="line">[includeIf &quot;gitdir:/home/your_name/workspaces/**&quot;]</span><br><span class="line">        path = /home/your_name/.gitconfig-corp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>~&#x2F;.gitconfig-default 保留默认commit配置<br>~&#x2F;.gitconfig-corp workspaces 目录下面使用公司commit配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.gitconfig-default</span><br><span class="line"></span><br><span class="line">[user]</span><br><span class="line">        email = custom-email@xxxxx.com</span><br><span class="line">        name =  xxxx</span><br><span class="line"></span><br><span class="line">cat ~/.gitconfig-corp</span><br><span class="line"></span><br><span class="line">[user]</span><br><span class="line">        email = xxxx@corp-xxx.com</span><br><span class="line">        name = xxxx</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="给github单独设置代理"><a href="#给github单独设置代理" class="headerlink" title="给github单独设置代理"></a>给github单独设置代理</h2><ol>
+<li>http&#x2F;https 代理 (自己有单独代理或公司代理)<br>比如我自己已经有了科学上网代理 本地监听1080 socks5 代理<br>修改~&#x2F;.gitconfig<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[github &quot;com.http&quot;]</span><br><span class="line">        proxy = socks5://127.0.0.1:1080</span><br><span class="line">[github &quot;com.https&quot;]</span><br><span class="line">        proxy = socks5://127.0.0.1:1080</span><br><span class="line">[</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>如果是http代理 换成<br>proxy &#x3D; <a href="http://host:port">http://host:port</a> 即可</p>
+<h2 id="命令行git神器-lazygit"><a href="#命令行git神器-lazygit" class="headerlink" title="命令行git神器 lazygit"></a>命令行git神器 <a href="https://github.com/jesseduffield/lazygit">lazygit</a></h2><h2 id="使用-stash"><a href="#使用-stash" class="headerlink" title="使用 stash"></a>使用 stash</h2><p>如果您需要在切换分支之前保存未提交的更改，可以使用 <code>git stash</code> 命令。这将把未提交的更改保存在一个堆栈中，以便稍后恢复。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 保存未提交的更改</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 恢复未提交的更改</span><br><span class="line">git stash apply</span><br><span class="line"></span><br><span class="line"># 从stash堆栈弹出(remove from stash list)</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-rebase"><a href="#使用-rebase" class="headerlink" title="使用 rebase"></a>使用 rebase</h2><p>使用 <code>git rebase</code> 命令可以将当前分支的更改应用到另一个分支上。这可以帮助您保持分支历史记录的整洁和有序。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 将当前分支的更改应用到另一个分支上</span><br><span class="line">git checkout another-branch</span><br><span class="line">git rebase current-branch</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-amend"><a href="#使用-amend" class="headerlink" title="使用 amend"></a>使用 amend</h2><p>如果您需要修改最近一次提交的提交信息或者添加一些遗漏的文件，可以使用 <code>git commit --amend</code> 命令。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 修改最近一次提交的提交信息</span><br><span class="line">git commit --amend -m &quot;New commit message&quot;</span><br><span class="line"></span><br><span class="line"># 添加遗漏的文件</span><br><span class="line">git add missed-file</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-reflog"><a href="#使用-reflog" class="headerlink" title="使用 reflog"></a>使用 reflog</h2><p>如果您不小心删除了一个分支或者提交，可以使用 <code>git reflog</code> 命令来查找并恢复它们。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查找删除的分支</span><br><span class="line">git reflog | grep deleted-branch</span><br><span class="line"></span><br><span class="line"># 恢复删除的分支</span><br><span class="line">git checkout -b recovered-branch HEAD@&#123;1&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-tag"><a href="#使用-tag" class="headerlink" title="使用 tag"></a>使用 tag</h2><p>使用 <code>git tag</code> 命令可以给特定的提交打上标签，以便稍后更容易地找到。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 给特定的提交打上标签</span><br><span class="line">git tag v1.0.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-submodule"><a href="#使用-submodule" class="headerlink" title="使用 submodule"></a>使用 submodule</h2><p>如果您需要将一个 Git 仓库作为另一个 Git 仓库的一部分使用，可以使用 <code>git submodule</code> 命令。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 添加一个子模块</span><br><span class="line">git submodule add https://github.com/user/repo.git</span><br><span class="line"></span><br><span class="line"># 更新子模块</span><br><span class="line">git submodule update --remote</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-bisect"><a href="#使用-bisect" class="headerlink" title="使用 bisect"></a>使用 bisect</h2><p>如果您需要找到导致代码出现问题的提交，可以使用 <code>git bisect</code> 命令。这将帮助您快速缩小问题所在的提交范围。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 开始二分查找</span><br><span class="line">git bisect start</span><br><span class="line"></span><br><span class="line"># 标记当前提交为有问题的提交</span><br><span class="line">git bisect bad</span><br><span class="line"></span><br><span class="line"># 标记一个已知没有问题的提交</span><br><span class="line">git bisect good v1.0.0</span><br><span class="line"></span><br><span class="line"># 继续二分查找</span><br><span class="line">git bisect run test.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-cherry-pick"><a href="#使用-cherry-pick" class="headerlink" title="使用 cherry-pick"></a>使用 cherry-pick</h2><p>如果您需要将一个提交应用到一个不同的分支上，可以使用 <code>git cherry-pick</code> 命令。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将一个提交应用到当前分支上</span><br><span class="line">git cherry-pick abc123</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-gitignore"><a href="#使用-gitignore" class="headerlink" title="使用 gitignore"></a>使用 gitignore</h2><p>创建一个 <code>.gitignore</code> 文件，可以在提交时忽略特定的文件或目录，以保持代码库的整洁。<br><a href="https://www.toptal.com/developers/gitignore/">gitignore.io</a> 是一个在线生成ignore模板网站</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 忽略所有 .log 文件</span><br><span class="line">*.log</span><br></pre></td></tr></table></figure>
+
+<h2 id="neovim-git-plugins"><a href="#neovim-git-plugins" class="headerlink" title="neovim git plugins"></a>neovim git plugins</h2><ol>
+<li><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a> </li>
+<li>show file git status (in nvim-tree)</li>
+<li>toggle line blame</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-06-24T03:58:21.691Z" itemprop="dateUpdated">2024-06-24 11:58:21</time>
+</span><br>
+
+
+        转载请注明：<a href="/linux/tools/git/tools-git/" target="_blank" rel="external">http://devhc.com/linux/tools/git/tools-git/</a>
+    </div>
+    
+    <footer>
+        <a href="http://devhc.com">
+            <img src="/img/avatar.jpg" alt="all3n">
+            all3n
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/" rel="tag">tools</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/linux/tools/git/tools-git/&title=《Git》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/linux/tools/git/tools-git/&title=《Git》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/linux/tools/git/tools-git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git》 — all3n's blog&url=http://devhc.com/linux/tools/git/tools-git/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/linux/tools/git/tools-git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/container/kubernetes/k8s-install-k8s/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">install kubernetes in china</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/spring/spring-jpa/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JPA JOIN</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="all3n/all3n.github.io"
+        data-repo-id="R_kgDOJhQzOA"
+        data-category="General"
+        data-category-id="DIC_kwDOJhQzOM4CWaqR"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>all3n &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/linux/tools/git/tools-git/&title=《Git》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/linux/tools/git/tools-git/&title=《Git》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/linux/tools/git/tools-git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Git》 — all3n's blog&url=http://devhc.com/linux/tools/git/tools-git/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/linux/tools/git/tools-git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3a3U7DMAwGUN7/pYfEFdK27rOdIpqeXE2wdTlBMvHP11e8Hj/r9+vn9fz+40+9e//zb5ctDAyMyzIeh+uZcbzdd+zkG/Mje7EfDAyMGzCSIFtlJGH03abzvWFgYGBUt5sfx/z4MDAwMJLr2hnBFwMDA2OSxOZbz4t3+ZEty8UxMDAuyOg1Bv7m9en9DQwMjH/PeCxdeTCtXiI/fC8GBsbWjMn1bp58rkpoMTAw7sNIBiPOuGhOjvVFwMXAwNiUUS3uV8Pi/BK54D8ABgbGZRnHD0o2kT9h3ir4EF4xMDA2ZSQ19l6zMy+09Y4y+vtgYGBsxEi2ko9H9BLRPNC//RQGBsamjEKDsDUeUU1uq41SDAyMOzDyNLWarOaXwuQnUUsAAwNja8Zx+Ou1IauNgfnTMDAw7sBI0tczroY9anlEDAMDYyNGr1g/b1ieODmCgYFxcUaeUlZL/5PWQnO0AgMDY1PGqkes3WLeEnjRGMDAwNiaUW0cTgbIJoMaGBgYd2bkZa95qa6XVDebARgYGBsx8vDaK/0ff++CtBYDA2NrRq+WNS/b9bY1egIGBsYFGY/img9AVMdYoxCMgYGxNWNS+u9d7/Lm6OltTgwMjEsxekG2F4J7LcwooGNgYNyAkSeu5TGIeQ6dlP8wMDAw4hLbJPnMBztePAEDAwOjeKWbNEeTUbPR1RADA+OyjPzRk3B5fHyjuiAGBsbWjFXDFkk4ztPd/JqIgYGxNeMbDOkD8eBmAUMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath:  [ ["$", "$"] ], //行内公式选择$
+        displayMath: [ ["$$","$$"] ], //段内公式选择$$
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+        ignoreClass:"comment-content" //避开含该Class的标签
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

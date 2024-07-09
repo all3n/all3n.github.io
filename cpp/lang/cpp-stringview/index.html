@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <meta name="baidu-site-verification" content="O0qt9Gkm8L" />
+    
+    
+    
+    <title>c++ stringview | all3n&#39;s blog | coding like r&amp;b</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="cpp,string">
+    <meta name="description" content="C++ StringView在 C++17 中，引入了 std::string_view 类型，它是一个轻量级的、不可变的字符串视图，可以用来代替 const char* 和 const std::string&amp;，并且提供了许多方便的方法来操作字符串。比如在一些新兴语言 rust 设计就直接支持&amp;str 切片 创建 StringView可以通过以下方式来创建 std::string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ stringview">
+<meta property="og:url" content="http://devhc.com/cpp/lang/cpp-stringview/index.html">
+<meta property="og:site_name" content="all3n&#39;s blog">
+<meta property="og:description" content="C++ StringView在 C++17 中，引入了 std::string_view 类型，它是一个轻量级的、不可变的字符串视图，可以用来代替 const char* 和 const std::string&amp;，并且提供了许多方便的方法来操作字符串。比如在一些新兴语言 rust 设计就直接支持&amp;str 切片 创建 StringView可以通过以下方式来创建 std::string">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-23T03:38:25.000Z">
+<meta property="article:modified_time" content="2024-06-24T03:58:21.685Z">
+<meta property="article:author" content="all3n">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="string">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="all3n&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">all3n</h5>
+          <a href="mailto:wanghch8398@163.com" title="wanghch8398@163.com" class="mail">wanghch8398@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/resource"  >
+                <i class="icon icon-lg icon-book"></i>
+                Resource
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/all3n" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                About Me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">c++ stringview</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">c++ stringview</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2023-05-23T03:38:25.000Z" itemprop="datePublished" class="page-time">
+  2023-05-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/cpp/">cpp</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/cpp/lang/">lang</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-StringView"><span class="post-toc-number">1.</span> <span class="post-toc-text">C++ StringView</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA-StringView"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">创建 StringView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#StringView-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">StringView 的基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">获取字符串长度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AE%BF%E9%97%AE%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">访问字符串中的字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">截取字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E6%89%BE%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">查找子字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AF%94%E8%BE%83%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">比较字符串</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#StringView-%E7%9A%84%E4%BC%98%E7%82%B9"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">StringView 的优点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-17-%E4%BB%A5%E4%B8%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">C++17 以下解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp-stringview"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">c++ stringview</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2023-05-23 11:38:25" datetime="2023-05-23T03:38:25.000Z"  itemprop="datePublished">2023-05-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/cpp/">cpp</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/cpp/lang/">lang</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="C-StringView"><a href="#C-StringView" class="headerlink" title="C++ StringView"></a>C++ StringView</h1><p>在 C++17 中，引入了 <code>std::string_view</code> 类型，它是一个轻量级的、不可变的字符串视图，可以用来代替 <code>const char*</code> 和 <code>const std::string&amp;</code>，并且提供了许多方便的方法来操作字符串。<br>比如在一些新兴语言 rust 设计就直接支持<a href="https://doc.rust-lang.org/book/ch04-03-slices.html">&amp;str 切片</a></p>
+<h2 id="创建-StringView"><a href="#创建-StringView" class="headerlink" title="创建 StringView"></a>创建 StringView</h2><p>可以通过以下方式来创建 <code>std::string_view</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从字符串字面量创建</span></span><br><span class="line"><span class="function">std::string_view <span class="title">sv1</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从 std::string 创建</span></span><br><span class="line">std::string str = <span class="string">&quot;Hello, world!&quot;</span>;</span><br><span class="line"><span class="function">std::string_view <span class="title">sv2</span><span class="params">(str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从部分 std::string 创建</span></span><br><span class="line">std::string str2 = <span class="string">&quot;Hello, world!&quot;</span>;</span><br><span class="line"><span class="function">std::string_view <span class="title">sv3</span><span class="params">(str2.c_str(), <span class="number">5</span>)</span></span>; <span class="comment">// 只包含前五个字符</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="StringView-的基本操作"><a href="#StringView-的基本操作" class="headerlink" title="StringView 的基本操作"></a>StringView 的基本操作</h2><h3 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h3><p>可以使用 <code>size()</code> 方法来获取字符串的长度：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string_view <span class="title">sv</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line">std::cout &lt;&lt; sv.<span class="built_in">size</span>() &lt;&lt; std::endl; <span class="comment">// 输出 13</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="访问字符串中的字符"><a href="#访问字符串中的字符" class="headerlink" title="访问字符串中的字符"></a>访问字符串中的字符</h3><p>可以使用 <code>operator[]</code> 或 <code>at()</code> 方法来访问字符串中的字符：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string_view <span class="title">sv</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line">std::cout &lt;&lt; sv[<span class="number">0</span>] &lt;&lt; std::endl; <span class="comment">// 输出 &#x27;H&#x27;</span></span><br><span class="line">std::cout &lt;&lt; sv.<span class="built_in">at</span>(<span class="number">1</span>) &lt;&lt; std::endl; <span class="comment">// 输出 &#x27;e&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><p>可以使用 <code>substr()</code> 方法来截取字符串：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string_view <span class="title">sv</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line">std::string_view sv2 = sv.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// 截取前五个字符</span></span><br><span class="line">std::cout &lt;&lt; sv2 &lt;&lt; std::endl; <span class="comment">// 输出 &quot;Hello&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查找子字符串"><a href="#查找子字符串" class="headerlink" title="查找子字符串"></a>查找子字符串</h3><p>可以使用 <code>find()</code> 方法来查找子字符串：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string_view <span class="title">sv</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line"><span class="type">size_t</span> pos = sv.<span class="built_in">find</span>(<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (pos != std::string_view::npos) &#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Found at position &quot;</span> &lt;&lt; pos &lt;&lt; std::endl;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Not found&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h3><p>可以使用 <code>operator==</code> 和 <code>operator!=</code> 来比较两个字符串是否相等：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string_view <span class="title">sv1</span><span class="params">(<span class="string">&quot;Hello, world!&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">std::string_view <span class="title">sv2</span><span class="params">(<span class="string">&quot;Hello&quot;</span>)</span></span>;</span><br><span class="line"><span class="keyword">if</span> (sv1 == sv2) &#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Equal&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Not equal&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="StringView-的优点"><a href="#StringView-的优点" class="headerlink" title="StringView 的优点"></a>StringView 的优点</h2><p>使用 <code>std::string_view</code> 的好处在于它是一个轻量级的、不可变的字符串视图，可以避免不必要的内存分配和拷贝。在需要操作字符串的场合，使用 <code>std::string_view</code> 可以提高程序的性能和效率。</p>
+<h2 id="C-17-以下解决方案"><a href="#C-17-以下解决方案" class="headerlink" title="C++17 以下解决方案"></a>C++17 以下解决方案</h2><ol>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/master/absl/strings/string_view.h">absl::string_view</a></li>
+<li><a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tsl/platform/stringpiece.h">tensorflow stringpiece</a> 使用absl</li>
+<li><a href="https://github.com/google/leveldb/blob/main/include/leveldb/slice.h">level db: Slice</a></li>
+<li><a href="https://www.boost.org/doc/libs/1_67_0/boost/utility/string_view.hpp">boost string_view</a></li>
+<li><a href="https://github.com/apache/brpc/blob/master/src/butil/strings/string_piece.h">brpc string_piece</a> brpc 注释copy from chromium</li>
+<li><a href="https://chromium.googlesource.com/chromium/src/base/+/master/strings/string_piece.h">chromium sptring_piece</a></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>std::string_view</code> 是一个轻量级的、不可变的字符串视图，可以用来代替 <code>const char*</code> 和 <code>const std::string&amp;</code>，并且提供了许多方便的方法来操作字符串。在需要操作字符串的场合，使用 <code>std::string_view</code> 可以提高程序的性能和效率。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-06-24T03:58:21.685Z" itemprop="dateUpdated">2024-06-24 11:58:21</time>
+</span><br>
+
+
+        转载请注明：<a href="/cpp/lang/cpp-stringview/" target="_blank" rel="external">http://devhc.com/cpp/lang/cpp-stringview/</a>
+    </div>
+    
+    <footer>
+        <a href="http://devhc.com">
+            <img src="/img/avatar.jpg" alt="all3n">
+            all3n
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/" rel="tag">string</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/cpp/lang/cpp-stringview/&title=《c++ stringview》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/cpp/lang/cpp-stringview/&title=《c++ stringview》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/cpp/lang/cpp-stringview/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《c++ stringview》 — all3n's blog&url=http://devhc.com/cpp/lang/cpp-stringview/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/cpp/lang/cpp-stringview/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/mac/mac-mac-upgrade-a1398/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mac a1398 升级ssd更换电池 添加变相片</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="all3n/all3n.github.io"
+        data-repo-id="R_kgDOJhQzOA"
+        data-category="General"
+        data-category-id="DIC_kwDOJhQzOM4CWaqR"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>all3n &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://devhc.com/cpp/lang/cpp-stringview/&title=《c++ stringview》 — all3n's blog&pic=http://devhc.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://devhc.com/cpp/lang/cpp-stringview/&title=《c++ stringview》 — all3n's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://devhc.com/cpp/lang/cpp-stringview/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《c++ stringview》 — all3n's blog&url=http://devhc.com/cpp/lang/cpp-stringview/&via=http://devhc.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://devhc.com/cpp/lang/cpp-stringview/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aS26DQBAFQN//0mRrKQK91wNjJ6pZIcBMmUWrP7xe8Tre1vuZ3/dcH5/df/PCxcVd5h6XK+deP/9sr9yAi4u7n5tskxwnlKVgh4uL+8Xc00BTPgEXF/d/cPOw1aY+uLi438ZNip/rMDT71YO1Gi4u7gJ31tq49/iR/i4uLu6Ie5QreUKbvhS74+LibuHmAaUtddp0Jx/u4uLiPs29DlVteEqCWv7pxul7xcXF3chNgtrKBxlJ2lRkZLi4uA9zZ+3LG7ZvXwQuLu5GbpKCJGlNfn72h3FxcXdy8ybIbMRy19gGFxd3J3dlZNJunLRcT6/i4uJu4c5an0kC1I5Ok6u4uLif4s6GqXnhtNJ8wcXF/RR39uHFyoglT5JwcXH3c/Mg1ZZMeRslarzi4uJu5LaPyNslsyKqKH5wcXEf5g6HHCNEkdYUl3FxcVe5R7lmw4+2fHrldRguLu4D3LY90RY/SQu1bbPi4uLu4ebBa2VA0n7ScXoVFxd3I3dW6uTR8fFaDRcX96Pcu9qjSRGFi4v7V7htU6OttIajFFxc3Ae4eZO0bXTWoer6Tlxc3C3cdryahLO82bFeVuHi4t7K/QGosin454qgEgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath:  [ ["$", "$"] ], //行内公式选择$
+        displayMath: [ ["$$","$$"] ], //段内公式选择$$
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+        ignoreClass:"comment-content" //避开含该Class的标签
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
