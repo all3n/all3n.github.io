@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/</loc>
+    <loc>http://devhc.com/tensorflow/pycharm/tools-pycharm/</loc>
     
     <lastmod>2024-07-09</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/tensorflow/pycharm/tools-pycharm/</loc>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/</loc>
     
     <lastmod>2024-07-09</lastmod>
     
@@ -110,24 +110,6 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/linux/tools/tools-davmail-setup/</loc>
     
     <lastmod>2024-06-24</lastmod>
@@ -147,6 +129,24 @@
   
   <url>
     <loc>http://devhc.com/linux/i3/tools-i3/</loc>
+    
+    <lastmod>2024-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
+    
+    <lastmod>2024-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -191,15 +191,6 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/</loc>
     
     <lastmod>2024-06-24</lastmod>
@@ -210,6 +201,15 @@
   
   <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-9-template/</loc>
+    
+    <lastmod>2024-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -299,24 +299,6 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/container/kubernetes/k8s-install-k8s/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/java/tools/java-Commons-Daemon/</loc>
     
     <lastmod>2024-06-24</lastmod>
@@ -336,6 +318,24 @@
   
   <url>
     <loc>http://devhc.com/java/tools/java-maven-tips/</loc>
+    
+    <lastmod>2024-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
+    
+    <lastmod>2024-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/container/kubernetes/k8s-install-k8s/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/cpp/lang/cpp-cpp-basic/</loc>
+    <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
+    <loc>http://devhc.com/cpp/lang/cpp-cpp-basic/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -425,13 +425,6 @@
 
   
   <url>
-    <loc>http://devhc.com/tags/ios/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/tags/cpp/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -447,13 +440,6 @@
   
   <url>
     <loc>http://devhc.com/tags/string/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/tags/kubernetes/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -488,6 +474,13 @@
   </url>
   
   <url>
+    <loc>http://devhc.com/tags/ios/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://devhc.com/tags/shell/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -509,14 +502,21 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/tags/math/</loc>
+    <loc>http://devhc.com/tags/matlab/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://devhc.com/tags/matlab/</loc>
+    <loc>http://devhc.com/tags/kubernetes/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/tags/math/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -565,13 +565,6 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/tags/tensorflow/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/tags/deploy/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -607,7 +600,28 @@
   </url>
   
   <url>
+    <loc>http://devhc.com/tags/pycharm/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/tags/tensorflow/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://devhc.com/tags/ssh/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/tags/hdfs/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -634,28 +648,7 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://devhc.com/tags/hdfs/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/tags/pycharm/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>http://devhc.com/categories/ios/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>http://devhc.com/categories/cpp/</loc>
@@ -672,13 +665,6 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/container/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/categories/java/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -687,6 +673,13 @@
   
   <url>
     <loc>http://devhc.com/categories/cpp/thread/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/categories/ios/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -714,6 +707,20 @@
   </url>
   
   <url>
+    <loc>http://devhc.com/categories/matlab/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/categories/container/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://devhc.com/categories/math/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -721,7 +728,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/matlab/</loc>
+    <loc>http://devhc.com/categories/java/tools/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -742,28 +749,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/container/kubernetes/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://devhc.com/categories/spring/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/categories/tensorflow/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/categories/java/tools/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -777,14 +763,7 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/read-notes/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/categories/cpp/libs/</loc>
+    <loc>http://devhc.com/categories/tensorflow/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -798,6 +777,13 @@
   </url>
   
   <url>
+    <loc>http://devhc.com/categories/cpp/libs/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://devhc.com/categories/linux/shell/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -805,14 +791,21 @@
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/bigdata/spark/</loc>
+    <loc>http://devhc.com/categories/read-notes/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://devhc.com/categories/tensorflow/framework/</loc>
+    <loc>http://devhc.com/categories/container/kubernetes/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/categories/bigdata/spark/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -833,7 +826,21 @@
   </url>
   
   <url>
+    <loc>http://devhc.com/categories/tensorflow/pycharm/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://devhc.com/categories/linux/ssh/</loc>
+    <lastmod>2024-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://devhc.com/categories/tensorflow/framework/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -855,13 +862,6 @@
   
   <url>
     <loc>http://devhc.com/categories/linux/tools/git/</loc>
-    <lastmod>2024-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://devhc.com/categories/tensorflow/pycharm/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

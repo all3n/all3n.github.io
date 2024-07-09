@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/</loc>
+    <loc>http://devhc.com/tensorflow/pycharm/tools-pycharm/</loc>
     <lastmod>2024-07-09</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/tensorflow/pycharm/tools-pycharm/</loc>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-hdfs/</loc>
     <lastmod>2024-07-09</lastmod>
   </url>
   <url>
@@ -25,14 +25,6 @@
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
-    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
     <loc>http://devhc.com/linux/tools/tools-davmail-setup/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
@@ -42,6 +34,14 @@
   </url>
   <url>
     <loc>http://devhc.com/linux/i3/tools-i3/</loc>
+    <lastmod>2024-06-24</lastmod>
+  </url>
+  <url>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-val/</loc>
+    <lastmod>2024-06-24</lastmod>
+  </url>
+  <url>
+    <loc>http://devhc.com/tensorflow/framework/tensorflow-tf-print/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
@@ -61,15 +61,15 @@
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
     <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-9-template/</loc>
+    <lastmod>2024-06-24</lastmod>
+  </url>
+  <url>
+    <loc>http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
@@ -109,14 +109,6 @@
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
-    <loc>http://devhc.com/container/kubernetes/k8s-install-k8s/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
     <loc>http://devhc.com/java/tools/java-Commons-Daemon/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
@@ -126,6 +118,14 @@
   </url>
   <url>
     <loc>http://devhc.com/java/tools/java-maven-tips/</loc>
+    <lastmod>2024-06-24</lastmod>
+  </url>
+  <url>
+    <loc>http://devhc.com/ios/ios-ios-open-app/</loc>
+    <lastmod>2024-06-24</lastmod>
+  </url>
+  <url>
+    <loc>http://devhc.com/container/kubernetes/k8s-install-k8s/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
@@ -141,11 +141,11 @@
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/cpp/lang/cpp-cpp-basic/</loc>
+    <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://devhc.com/uncategorized/cpp-cpp-compile-issues/</loc>
+    <loc>http://devhc.com/cpp/lang/cpp-cpp-basic/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>

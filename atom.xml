@@ -102,7 +102,7 @@
     <link href="http://devhc.com/tensorflow/pycharm/tools-pycharm/"/>
     <id>http://devhc.com/tensorflow/pycharm/tools-pycharm/</id>
     <published>2019-12-15T06:10:11.000Z</published>
-    <updated>2024-07-09T08:00:25.337Z</updated>
+    <updated>2024-07-09T08:45:58.219Z</updated>
     
     <content type="html"><![CDATA[<h2 id="pycharm-支持tensorflow提示"><a href="#pycharm-支持tensorflow提示" class="headerlink" title="pycharm 支持tensorflow提示"></a>pycharm 支持tensorflow提示</h2><p>默认tensorflow package keras是通过_LazyLoader 方式延迟加载 导致pycharm 不能正常提示<br>可以通过_typing.TYPE_CHECKING 判断是否类型检查直接import keras</p><p>site-packages&#x2F;tensorflow&#x2F;<strong>init</strong>.py near line 387 左右</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_keras_module = <span class="string">&quot;keras.api._v2.keras&quot;</span></span><br><span class="line">keras = _LazyLoader(<span class="string">&quot;keras&quot;</span>, <span class="built_in">globals</span>(), _keras_module)</span><br><span class="line">_module_dir = _module_util.get_parent_dir_for_name(_keras_module)</span><br><span class="line"><span class="keyword">if</span> _module_dir:</span><br><span class="line">  _current_module.__path__ = [_module_dir] + _current_module.__path__</span><br><span class="line"><span class="built_in">setattr</span>(_current_module, <span class="string">&quot;keras&quot;</span>, keras)</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> typing <span class="keyword">as</span> _typing</span><br><span class="line"><span class="keyword">if</span> _typing.TYPE_CHECKING:</span><br><span class="line">  <span class="keyword">from</span> keras.api._v2 <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  _keras_module = <span class="string">&quot;keras.api._v2.keras&quot;</span></span><br><span class="line">  keras = _LazyLoader(<span class="string">&quot;keras&quot;</span>, <span class="built_in">globals</span>(), _keras_module)</span><br><span class="line">  _module_dir = _module_util.get_parent_dir_for_name(_keras_module)</span><br><span class="line">  <span class="keyword">if</span> _module_dir:</span><br><span class="line">    _current_module.__path__ = [_module_dir] + _current_module.__path__</span><br><span class="line">  <span class="built_in">setattr</span>(_current_module, <span class="string">&quot;keras&quot;</span>, keras)</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -119,9 +119,9 @@
     <category term="pycharm" scheme="http://devhc.com/categories/tensorflow/pycharm/"/>
     
     
-    <category term="tensorflow" scheme="http://devhc.com/tags/tensorflow/"/>
-    
     <category term="pycharm" scheme="http://devhc.com/tags/pycharm/"/>
+    
+    <category term="tensorflow" scheme="http://devhc.com/tags/tensorflow/"/>
     
   </entry>
   

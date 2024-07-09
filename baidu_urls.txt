@@ -27,9 +27,9 @@ http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-3-expres
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-4-statment/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-5-abstact-container/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-6-function/
-http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-8-exception/
 http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-9-template/
+http://devhc.com/read-notes/cpp-primer/read-notes-cpp-primer-cpp-primer-7-classs/
 http://devhc.com/matlab/matlab-matlab-octave/
 http://devhc.com/java/tools/java-Commons-Daemon/
 http://devhc.com/linux/tools/tools-mutt-sendmail/
